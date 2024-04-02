@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Klinik Winahyusaras</a>
+            <a href="{{ route('home') }}">Klinik Winahyusaras</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -14,7 +14,7 @@
                 <ul class="dropdown-menu">
                     <li class='{{ Request::is('dashboard-general-dashboard') ? 'active' : '' }}'>
                         <a class="nav-link"
-                            href="{{ url('dashboard-general-dashboard') }}">General Dashboard</a>
+                            href="{{ route('home') }}">General Dashboard</a>
                     </li>
                 </ul>
                 <ul class="dropdown-menu">
@@ -27,6 +27,12 @@
                     <li class=''>
                         <a class="nav-link"
                             href="{{ route('doctors.index') }}">Doctors</a>
+                    </li>
+                </ul>
+                <ul class="dropdown-menu">
+                    <li class=''>
+                        <a class="nav-link"
+                            href="{{ route('doctor-schedules.index') }}">Doctor Schedules</a>
                     </li>
                 </ul>
             </li>
