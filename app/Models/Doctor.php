@@ -24,7 +24,7 @@ class Doctor extends Model
     //sip
     // $table->string('sip');
 
-    protected $filable = [
+    protected $fillable = [
         'doctor_name',
         'doctor_specialist',
         'doctor_phone',
@@ -32,5 +32,7 @@ class Doctor extends Model
         'photo',
         'address',
         'sip',
+        'id_ihs',
+        'nik',
     ];
 }
