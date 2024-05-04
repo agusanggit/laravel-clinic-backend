@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Doctor Schedules')
+@section('title', 'Patients')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,14 +11,14 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Doctor Schedule</h1>
+                <h1>Patients</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('doctor-schedules.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('users.create') }}" class="btn btn-primary">Add New</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Doctor</a></div>
-                    <div class="breadcrumb-item">All Doctor Schedule</div>
+                    <div class="breadcrumb-item"><a href="#">Users</a></div>
+                    <div class="breadcrumb-item">All Users</div>
                 </div>
             </div>
             <div class="section-body">
@@ -27,7 +27,7 @@
                         @include('layouts.alert')
                     </div>
                 </div>
-                <h2 class="section-title">Schedule</h2>
+                <h2 class="section-title">Patients</h2>
                 <p class="section-lead">
                     You can manage all Users, such as editing, deleting and more.
                 </p>
@@ -42,9 +42,9 @@
                             <div class="card-body">
 
                                 <div class="float-right">
-                                    <form method="GET" action="{{ route('doctor-schedules.index') }}">
+                                    <form method="GET" action="{{ route('patients.index') }}">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search" name="doctor_name">
+                                            <input type="text" class="form-control" placeholder="Search" name="nik">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
@@ -57,38 +57,39 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-
+                                            <th>NIK</th>
                                             <th>Name</th>
-                                            <th>Day</th>
-                                            <th>Time</th>
-                                            <th>Note</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Birth Date</th>
+                                            <th>Created At</th>
 
-                                            <th>Action</th>
                                         </tr>
-                                        @foreach ($doctorSchedules as $schedule)
+                                        @foreach ($patients as $patient)
                                             <tr>
-
-                                                <td>
-                                                    {{ $schedule->doctor_name }}
+                                                <td>{{ $patient->nik }}
                                                 </td>
-                                                <td>{{ $schedule->day }}
+                                                <td>{{ $patient->name }}
                                                 </td>
                                                 <td>
-                                                    {{ $schedule->time }}
+                                                    {{ $patient->email }}
                                                 </td>
                                                 <td>
-                                                    {{ $schedule->note }}
+                                                    {{ $patient->phone }}
                                                 </td>
-
                                                 <td>
+                                                    {{ $patient->birth_date }}
+                                                </td>
+                                                <td>{{ $patient->created_at }}</td>
+                                                {{-- <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href='{{ route('doctor-schedules.edit', $schedule->id) }}'
+                                                        <a href='{{ route('patients.edit', $user->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
 
-                                                        <form action="{{ route('doctor-schedules.destroy', $schedule->id) }}" method="POST"
+                                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST"
                                                             class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
@@ -98,7 +99,7 @@
                                                             </button>
                                                         </form>
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
 
@@ -106,7 +107,7 @@
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                    {{ $doctorSchedules->withQueryString()->links() }}
+                                    {{ $patients->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>
