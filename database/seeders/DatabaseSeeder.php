@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\ServiceMedicines;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -45,6 +47,7 @@ class DatabaseSeeder extends Seeder
             DoctorSeeder::class,
             DoctorScheduleSeeder::class,
             PatientSeeder::class,
+            ServiceMedicinesSeeder::class,
         ]);
     }
 }

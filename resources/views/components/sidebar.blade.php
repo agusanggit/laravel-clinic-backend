@@ -41,6 +41,12 @@
                             href="{{ route('patients.index') }}">Patients</a>
                     </li>
                 </ul>
+                <ul class="dropdown-menu">
+                    <li class=''>
+                        <a class="nav-link"
+                            href="{{ route('service-medicines.index') }}">Service Medicine</a>
+                    </li>
+                </ul>
             </li>
     </aside>
 </div>

@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class DoctorController extends Controller
 {
+    //index
     public function index(Request $request)
     {
-        //index
         $doctors = DB::table('doctors')
         ->when($request->input('name'), function ($query, $doctor_name) {
             return $query->where('doctor_name', 'like', '%' . $doctor_name . '%');
