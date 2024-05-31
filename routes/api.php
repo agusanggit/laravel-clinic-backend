@@ -8,6 +8,8 @@ use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\DoctorScheduleController;
+use App\Http\Controllers\Api\PatientScheduleController;
+use App\Http\Controllers\Api\SatuSehatTokenController;
 use App\Models\ServiceMedicines;
 use App\Http\Controllers\Api\ServiceMedicinesController;
 
@@ -45,3 +47,12 @@ Route::apiResource('/api-doctor-schedule', DoctorScheduleController::class)
 //service medicines middleware menandakan bahwa posisi user untuk service medicine harus login dulu
 Route::apiResource('/api-service-medicines', ServiceMedicinesController::class)
 ->middleware('auth:sanctum');
+
+//patient schedule middleware menandakan bahwa posisi user untuk service medicine harus login dulu
+Route::apiResource('/api-patient-schedules', PatientScheduleController::class)
+->middleware('auth:sanctum');
+
+//token SATU SEHAT
+Route::get('/satusehat-token', [SatuSehatTokenController::class, 'token']);
+
+
